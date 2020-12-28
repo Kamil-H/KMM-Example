@@ -6,6 +6,14 @@ plugins {
 }
 
 kotlin {
+    configurations {
+        create("testApi")
+        create("androidTestApi")
+        create("androidTestDebugApi")
+        create("androidTestReleaseApi")
+        create("testDebugApi")
+        create("testReleaseApi")
+    }
     android()
     ios {
         binaries {
@@ -22,11 +30,7 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting {
-            dependencies {
-                implementation("com.google.android.material:material:1.2.1")
-            }
-        }
+        val androidMain by getting
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
